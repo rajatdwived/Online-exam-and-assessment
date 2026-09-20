@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- HEAD : charset, viewport, title, stylesheet link -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ExamHub - an online examination and assessment system for colleges.">
+  <meta name="author" content="Your Name - Web Development Project">
+  <title>ExamHub | Online Examination &amp; Assessment System</title>
+
+  <!-- Favicon: the small icon shown on the browser tab -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
+  <!-- Google Fonts: Outfit for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- EXTERNAL CSS: this single line connects the HTML file to the CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 1. HEADER + NAVIGATION BAR -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+
+        <a href="#top" class="logo">
+          <img src="file_0000000034248211af6146cf04fec4cb.png" alt="ExamHub logo" width="50%" height="50%">  
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#exams">Exams</a></li>
+          <li><a href="#rules">Rules</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#register" class="btn btn-primary">Student login</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 2. HERO SECTION : headline text + animated SVG illustration -->
+    <div class="container">
+      <section class="hero">
+
+        <div class="hero-copy">
+          <span class="tagline">
+            <span class="live-dot"></span> Auto-graded in under 2 seconds
+          </span>
+
+          <h1>Take your exam from anywhere, get your result before you close the tab.</h1>
+
+          <p class="lead">
+            ExamHub lets colleges run tests online, check answers automatically
+            and track every student's performance from a single dashboard
+            &mdash; without printing a single paper.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#register" class="btn btn-primary">Start a mock test</a>
+            <a href="#features" class="btn btn-ghost">See how it works</a>
+          </div>
+        </div>
+
+        <!-- This image animates by itself (the animation is inside the SVG file) -->
+        <figure class="hero-art">
+          
+        </figure>
+
+      </section>
+    </div>
+
+    <!-- 3. STATS STRIP -->
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><strong>12,400</strong><span>Tests attempted</span></div>
+        <div class="stat"><strong>340</strong><span>Question banks</span></div>
+        <div class="stat"><strong>96%</strong><span>Papers auto-graded</span></div>
+        <div class="stat"><strong>28</strong><span>Partner colleges</span></div>
+      </div>
+    </div>
+
+    <!-- 4. FEATURES : six cards in a CSS Grid, each with an SVG icon -->
+    <section id="features">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>Everything an exam cell needs</h2>
+          <p>From setting the question paper to declaring the result, the whole
+             process runs on one platform.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <article class="card">
+            <div class="card-icon"><img src="question-bank.png" alt=""></div>
+            <h3>Question bank</h3>
+            <p>Store multiple choice, true or false and short answer questions,
+               sorted by subject and difficulty level.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><img src="timed-test.png" alt=""></div>
+            <h3>Timed test window</h3>
+            <p>The teacher sets the start time, duration and attempt limit. The
+               paper submits itself the moment time runs out.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon icon-mint"><img src="instant-evaluation.png" alt=""></div>
+            <h3>Instant evaluation</h3>
+            <p>Objective answers are checked on submission, so marks appear on
+               the student dashboard right away.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon icon-rose"><img src="exam-security.png" alt=""></div>
+            <h3>Exam security</h3>
+            <p>Shuffled questions, single device login and a tab switch warning
+               make cheating much harder.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon icon-mint"><img src="result-analytics.png" alt=""></div>
+            <h3>Result analytics</h3>
+            <p>Generate class averages, topper lists and topic wise weak areas
+               with a single click.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><img src="downloadable-marksheet.png" alt=""></div>
+            <h3>Downloadable marksheet</h3>
+            <p>Export any result as a PDF and email it straight to the student
+               from the same screen.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EXAM SCHEDULE TABLE -->
+    <section id="exams">
+      <div class="container">
+
+        <div class="section-head">
+          <h2>Upcoming exam schedule</h2>
+          <p>Semester V &ndash; B-Tech. Click any paper marked live to begin the
+             test straight away.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Last updated: 18 September 2026</caption>
+
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Duration</th>
+                <th>Marks</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>B-Tech-301</td>
+                <td>Web Development</td>
+                <td>20 Sep 2026</td>
+                <td>60 min</td>
+                <td>50</td>
+                <td><span class="badge badge-live"><span class="live-dot"></span> Live now</span></td>
+              </tr>
+              <tr>
+                <td>B-Tech-302</td>
+                <td>Data Structures</td>
+                <td>23 Sep 2026</td>
+                <td>90 min</td>
+                <td>75</td>
+                <td><span class="badge badge-soon">Opens soon</span></td>
+              </tr>
+              <tr>
+                <td>B-Tech-303</td>
+                <td>Database Management</td>
+                <td>26 Sep 2026</td>
+                <td>60 min</td>
+                <td>50</td>
+                <td><span class="badge badge-soon">Opens soon</span></td>
+              </tr>
+              <tr>
+                <td>B-Tech-304</td>
+                <td>Operating System</td>
+                <td>12 Sep 2026</td>
+                <td>60 min</td>
+                <td>50</td>
+                <td><span class="badge badge-closed">Closed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. EXAM RULES (ordered list) + REGISTRATION FORM -->
+    <section id="rules">
+      <div class="container">
+        <div class="split">
+
+          <div>
+            <div class="section-head">
+              <h2>Exam rules</h2>
+              <p>Please read these points before you begin a test.</p>
+            </div>
+
+            <ol class="rules">
+              <li>Log in only with the enrollment ID issued by your college.</li>
+              <li>Entry closes 10 minutes after the test has started.</li>
+              <li>You can return to any question and change your answer.</li>
+              <li>Switching tabs or windows is recorded as a warning.</li>
+              <li>Answers stay saved even if your internet drops.</li>
+              <li>The paper submits automatically when the timer ends.</li>
+            </ol>
+          </div>
+
+          <!-- REGISTRATION FORM -->
+          <div class="form-box" id="register">
+            <h3>Register for an exam</h3>
+            <p class="form-sub">Fill in the form and a confirmation will reach your inbox.</p>
+
+            <form action="#" method="post">
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="fname">Full name</label>
+                  <input type="text" id="fname" name="fname" placeholder="Vivek Jadon" required>
+                </div>
+                <div class="field">
+                  <label for="roll">Enrollment no.</label>
+                  <input type="text" id="roll" name="roll" placeholder="BCA23045" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="vivek@college.edu" required>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <!-- DROPDOWN: select + option elements -->
+                  <label for="subject">Choose subject</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">-- Select --</option>
+                    <option value="web">Web Development</option>
+                    <option value="ds">Data Structures</option>
+                    <option value="dbms">Database Management</option>
+                    <option value="os">Operating System</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="slot">Preferred date</label>
+                  <input type="date" id="slot" name="slot">
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Exam mode</label>
+                <div class="choices">
+                  <label><input type="radio" name="mode" value="practice" checked> Practice test</label>
+                  <label><input type="radio" name="mode" value="final"> Final exam</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="note">Any special requirement?</label>
+                <textarea id="note" name="note" rows="3" placeholder="Extra time, screen reader, and so on"></textarea>
+              </div>
+
+              <div class="field">
+                <div class="choices">
+                  <label><input type="checkbox" name="agree" required> I have read the exam rules</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Confirm registration</button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. TESTIMONIAL (blockquote + avatar image) -->
+    <section>
+      <div class="container">
+        <blockquote class="quote" cite="https://example.edu">
+          <p>&ldquo;Checking 300 answer sheets used to take us two weeks. Now the
+             result goes out the same evening.&rdquo;</p>
+          <footer>
+            <img src="24_569.jpg" alt="" width="46" height="46">
+            <span>
+              <strong>Dr. Meera Joshi</strong><br>
+              Head of Examination Cell
+            </span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 8. CALL TO ACTION BAND (animated gradient background) -->
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <h2>Try your first mock test today</h2>
+          <p>25 questions, 20 minutes, instant result. Registration is free.</p>
+          <a href="#register" class="btn btn-primary">Start mock test</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 9. FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+
+      <div class="foot-grid">
+
+        <div>
+          <a href="#top" class="logo">
+            <img src="file_0000000034248211af6146cf04fec4cb.png" alt="" width="70%" height="70%">
+          </a>
+          <p>A simple online examination and assessment system that helps
+             colleges run paperless tests.</p>
+        </div>
+
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#exams">Exam schedule</a></li>
+            <li><a href="#rules">Exam rules</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>For students</h4>
+          <ul>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#top">Student login</a></li>
+            <li><a href="#top">Check result</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:help@examhub.edu">help@examhub.edu</a></li>
+            <li><a href="tel:+911234567890">+91 12345 67890</a></li>
+            <li>Mathura, Uttar Pradesh</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- HTML entities used here: &copy; &bull; &amp; -->
+      <p class="copyright">
+        &copy; 2026 ExamHub &nbsp;&bull;&nbsp; Web Development Project
+        &nbsp;&bull;&nbsp; Built with HTML5 &amp; CSS3
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
