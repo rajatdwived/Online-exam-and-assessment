@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student login for the ExamHub online examination system.">
+  <title>Student Login | ExamHub</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+  <!-- HEADER + NAVIGATION (same as index.html) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <img src="file_0000000034248211af6146cf04fec4cb.png" alt="ExamHub logo" width="50%" height="50%">
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#exams">Exams</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="login.html" class="btn btn-ghost">Student login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- LOGIN FORM, centered on the page -->
+  <main>
+    <div class="container">
+      <div class="auth-wrap">
+        <div class="auth-box">
+
+          <!-- .form-box is the same card style used on the home page form -->
+          <div class="form-box">
+            <h3>Student Login</h3>
+            <p class="form-sub">Enter your enrollment ID to begin your exam.</p>
+
+            <!-- action="exam.html" : submitting this form opens the exam page -->
+            <form action="exam.html" method="get">
+
+              <div class="field">
+                <label for="roll">Enrollment number</label>
+                <input type="text" id="roll" name="roll" placeholder="B-Tech-3045" required>
+              </div>
+
+              <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+
+              <div class="field">
+                <label for="subject">Select subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="">-- Select --</option>
+                  <option value="web">Web Development</option>
+                  <option value="ds">Data Structures</option>
+                  <option value="dbms">Database Management</option>
+                  <option value="os">Operating System</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <div class="choices">
+                  <label><input type="checkbox" required> I have read the exam rules</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Start exam</button>
+            </form>
+
+            <p class="auth-footer">Forgot your password? <a href="#">Contact the exam cell</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (same as index.html) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="copyright">
+        &copy; 2026 ExamHub &nbsp;&bull;&nbsp; Web Development Project
+        &nbsp;&bull;&nbsp; Built with HTML5 &amp; CSS3
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

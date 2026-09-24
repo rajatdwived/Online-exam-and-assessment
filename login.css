@@ -1,0 +1,283 @@
+/* =====================================================================
+   PROJECT : ExamHub - Online Examination & Assessment System
+   FILE    : login.css   (used only by login.html)
+
+   This file is self-contained: it has its own copy of the shared
+   building blocks (variables, header, buttons, footer) plus the
+   styles that are specific to the login page.
+
+   CONTENTS:
+     01. CSS Variables
+     02. Reset + Box Model
+     03. Typography
+     04. Reusable classes (container, buttons)
+     05. Header / Navigation bar
+     06. Footer
+     07. Keyframe animation
+     08. LOGIN PAGE (page-specific styles)
+     09. Media queries (responsive design)
+   ===================================================================== */
+
+
+/* =====================================================================
+   01. CSS VARIABLES
+   ===================================================================== */
+:root {
+  --ink:        #10162b;
+  --ink-soft:   #141a33;
+  --panel:      #1b2340;
+  --panel-2:    #232c4f;
+  --line:       #2f3a63;
+  --paper:      #eef1f8;
+  --muted:      #9aa5c4;
+
+  --amber:      #f5b23d;
+  --mint:       #46d3b4;
+  --rose:       #ef6f83;
+
+  --radius:     14px;
+  --maxw:       1140px;
+}
+
+
+/* =====================================================================
+   02. GLOBAL RESET + BOX MODEL
+   ===================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(circle at 12% 6%,  rgba(245,178,61,.15), transparent 42%),
+    radial-gradient(circle at 88% 2%,  rgba(70,211,180,.13), transparent 45%);
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  color: var(--paper);
+  line-height: 1.65;
+}
+
+img { max-width: 100%; display: block; }
+ul  { list-style: none; }
+a   { color: inherit; text-decoration: none; }
+
+a:focus-visible, button:focus-visible,
+input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+
+/* =====================================================================
+   03. TYPOGRAPHY
+   ===================================================================== */
+h1, h2, h3 {
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* =====================================================================
+   04. REUSABLE CLASSES
+   ===================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.btn-primary {
+  background: var(--amber);
+  color: #221703;
+  box-shadow: 0 8px 20px rgba(245,178,61,.28);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(245,178,61,.42);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { background: var(--panel-2); transform: translateY(-3px); }
+.btn-block { width: 100%; }
+
+
+/* =====================================================================
+   05. HEADER / NAVIGATION BAR
+   ===================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(16,22,43,.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  padding: 8px 14px;
+  font-size: 15px;
+  color: var(--muted);
+  border-radius: 8px;
+  transition: color .25s ease, background .25s ease;
+}
+.nav-links a:hover { color: var(--paper); background: rgba(255,255,255,.05); }
+
+
+/* =====================================================================
+   06. FOOTER
+   ===================================================================== */
+.site-footer {
+  margin-top: 40px;
+  padding: 30px 0;
+  background: var(--ink-soft);
+  border-top: 1px solid var(--line);
+}
+.copyright {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+
+/* =====================================================================
+   07. KEYFRAME ANIMATION
+   ===================================================================== */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+
+/* =====================================================================
+   08. LOGIN PAGE (page-specific styles)
+   ===================================================================== */
+
+/* Wrapper that centers the login card in the middle of the screen */
+.auth-wrap {
+  min-height: calc(100vh - 130px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 440px;
+  animation: riseIn .7s ease both;
+}
+
+/* The login card itself */
+.form-box {
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.form-box h3 { font-size: 24px; text-align: center; margin-bottom: 6px; }
+.form-sub { font-size: 14px; color: var(--muted); text-align: center; margin-bottom: 20px; }
+
+/* Form fields */
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 14px; margin-bottom: 6px; }
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--paper);
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.field input::placeholder { color: #6d78a0; }
+.field input:focus,
+.field select:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(245,178,61,.18);
+}
+
+.choices { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 18px; }
+.choices label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.choices input { width: auto; accent-color: var(--amber); }
+
+.auth-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.auth-footer a { color: var(--amber); }
+.auth-footer a:hover { text-decoration: underline; }
+
+
+/* =====================================================================
+   09. MEDIA QUERIES - RESPONSIVE DESIGN
+   ===================================================================== */
+
+/* Tablet: screens narrower than 900px */
+@media (max-width: 900px) {
+  .auth-box { max-width: 400px; }
+}
+
+/* Mobile: screens narrower than 640px */
+@media (max-width: 640px) {
+  .nav { flex-direction: column; }
+  .form-box  { padding: 22px; }
+  .auth-wrap { padding: 40px 16px; }
+}
+
+/* Small phones: screens narrower than 420px */
+@media (max-width: 420px) {
+  .form-box h3 { font-size: 20px; }
+}
