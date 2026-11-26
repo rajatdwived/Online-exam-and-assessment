@@ -18,11 +18,19 @@
      13. Call to action band
      14. Footer
      15. Keyframe animations
-     16. Media queries (responsive design)
+     16. Login page
+     17. Exam page
+     18. Result page
+     19. Media queries (responsive design)
+     20. JavaScript helper styles
    ===================================================================== */
 
 
-/* 01. CSS VARIABLES */
+/* =====================================================================
+   01. CSS VARIABLES
+   Every colour used in the project is declared once here. To change the
+   whole theme, edit only these values.
+   ===================================================================== */
 :root {
   --ink:        #10162b;   /* page background        */
   --ink-soft:   #141a33;   /* inputs, footer         */
@@ -42,8 +50,10 @@
 }
 
 
-/*  02. GLOBAL RESET + BOX MODEL
-   border-box means padding and border are counted INSIDE the width */
+/* =====================================================================
+   02. GLOBAL RESET + BOX MODEL
+   border-box means padding and border are counted INSIDE the width.
+   ===================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -55,13 +65,11 @@ html { scroll-behavior: smooth; }   /* smooth scroll for the nav links */
 body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   background-color: var(--ink);
-  /* Three layers: an OMR dot pattern plus two gradient glows */
+  /* Two soft gradient glows behind the content */
   background-image:
-    url("images/pattern-dots.svg"),
     radial-gradient(circle at 12% 6%,  rgba(245,178,61,.15), transparent 42%),
     radial-gradient(circle at 88% 2%,  rgba(70,211,180,.13), transparent 45%);
-  background-repeat: repeat, no-repeat, no-repeat;
-  background-size: 120px 120px, auto, auto;
+  background-repeat: no-repeat, no-repeat;
   background-attachment: fixed;
   color: var(--paper);
   line-height: 1.65;
@@ -80,7 +88,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 
 
-/* 03. TYPOGRAPHY */
+/* =====================================================================
+   03. TYPOGRAPHY
+   ===================================================================== */
 h1, h2, h3, h4 {
   font-family: 'Outfit', Arial, sans-serif;
   font-weight: 600;
@@ -89,7 +99,9 @@ h1, h2, h3, h4 {
 }
 
 
-/* 04. REUSABLE CLASSES */
+/* =====================================================================
+   04. REUSABLE CLASSES
+   ===================================================================== */
 
 /* Wrapper that centres the content and limits its width */
 .container {
@@ -99,7 +111,7 @@ h1, h2, h3, h4 {
   padding: 0 20px;
 }
 
-/* Buttons */
+/* ---- Buttons ---- */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -128,7 +140,7 @@ h1, h2, h3, h4 {
 .btn-ghost:hover { background: var(--panel-2); transform: translateY(-3px); }
 .btn-block { width: 100%; }
 
-/* Badges / labels */
+/* ---- Badges / labels ---- */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -152,15 +164,17 @@ h1, h2, h3, h4 {
   animation: blink 1.6s ease-in-out infinite;
 }
 
-/* Section headings */
+/* ---- Section headings ---- */
 section { padding: 70px 0; }
 .section-head { margin-bottom: 38px; max-width: 58ch; }
 .section-head h2 { font-size: 34px; margin-bottom: 12px; }
 .section-head p  { color: var(--muted); }
 
 
-/* 05. HEADER / NAVIGATION BAR
-   position: sticky + flexbox + an underline animation on hover */
+/* =====================================================================
+   05. HEADER / NAVIGATION BAR
+   position: sticky + flexbox + an underline animation on hover
+   ===================================================================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -213,7 +227,9 @@ section { padding: 70px 0; }
 .nav-links a:hover::after { width: calc(100% - 28px); }
 
 
-/* 06. HERO SECTION */
+/* =====================================================================
+   06. HERO SECTION
+   ===================================================================== */
 .hero {
   display: grid;
   grid-template-columns: 1.02fr 0.98fr;
@@ -252,7 +268,9 @@ section { padding: 70px 0; }
 .hero-art img { width: 100%; }
 
 
-/* 07. STATS STRIP (flexbox) */
+/* =====================================================================
+   07. STATS STRIP (flexbox)
+   ===================================================================== */
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -272,7 +290,9 @@ section { padding: 70px 0; }
 .stat span { font-size: 14px; color: var(--muted); }
 
 
-/* 08. FEATURE CARDS (CSS Grid) */
+/* =====================================================================
+   08. FEATURE CARDS (CSS Grid)
+   ===================================================================== */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -313,7 +333,9 @@ section { padding: 70px 0; }
 .card p  { font-size: 15px; color: var(--muted); }
 
 
-/* 09. TABLE */
+/* =====================================================================
+   09. TABLE
+   ===================================================================== */
 .table-wrap {
   overflow-x: auto;                 /* the table scrolls sideways on mobile */
   background: var(--panel);
@@ -350,7 +372,9 @@ tbody tr:hover { background: rgba(245,178,61,.06); }
 tbody tr:last-child { border-bottom: none; }
 
 
-/* 10. RULES LIST (custom numbering with a CSS counter) */
+/* =====================================================================
+   10. RULES LIST (custom numbering with a CSS counter)
+   ===================================================================== */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -390,7 +414,9 @@ tbody tr:last-child { border-bottom: none; }
 .rules li:last-child { border-bottom: none; }
 
 
-/* 11. FORM */
+/* =====================================================================
+   11. FORM
+   ===================================================================== */
 .form-box {
   padding: 28px;
   background: var(--panel);
@@ -442,7 +468,9 @@ tbody tr:last-child { border-bottom: none; }
 .choices input { width: auto; accent-color: var(--amber); }
 
 
-/* 12. TESTIMONIAL */
+/* =====================================================================
+   12. TESTIMONIAL
+   ===================================================================== */
 .quote {
   max-width: 780px;
   margin: 0 auto;
@@ -468,7 +496,9 @@ tbody tr:last-child { border-bottom: none; }
 .quote footer strong { color: var(--paper); }
 
 
-/* 13. CALL TO ACTION BAND (animated gradient) */
+/* =====================================================================
+   13. CALL TO ACTION BAND (animated gradient)
+   ===================================================================== */
 .cta-band {
   padding: 46px;
   text-align: center;
@@ -482,7 +512,9 @@ tbody tr:last-child { border-bottom: none; }
 .cta-band p  { color: var(--muted); margin-bottom: 24px; }
 
 
-/* 14. FOOTER */
+/* =====================================================================
+   14. FOOTER
+   ===================================================================== */
 .site-footer {
   margin-top: 40px;
   padding: 46px 0 24px;
@@ -512,7 +544,9 @@ tbody tr:last-child { border-bottom: none; }
 }
 
 
-/* 15. KEYFRAME ANIMATIONS */
+/* =====================================================================
+   15. KEYFRAME ANIMATIONS
+   ===================================================================== */
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(26px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -528,29 +562,246 @@ tbody tr:last-child { border-bottom: none; }
   50%      { background-position: 100% 50%; }
 }
 
+/* used by .exam-progress span : the bar grows from 0 to its final width */
+@keyframes fillBar {
+  from { width: 0; }
+}
+
+/* used by .score-ring : the ring fades and scales in on the result page */
+@keyframes ringIn {
+  from { opacity: 0; transform: scale(.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 /* Animations are switched off for people who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
 
 
-/* 16. MEDIA QUERIES - RESPONSIVE DESIGN */
+/* =====================================================================
+   16. LOGIN PAGE
+   Reuses .form-box, .field, .btn from earlier sections, plus a
+   full-height centering wrapper just for this page.
+   ===================================================================== */
+.auth-wrap {
+  min-height: calc(100vh - 138px);   /* fills the screen below header/footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
 
-/* Tablet: screens narrower than 900px */
+.auth-box {
+  width: 100%;
+  max-width: 440px;
+  animation: riseIn .7s ease both;
+}
+
+.auth-box .form-box h3 { font-size: 24px; text-align: center; }
+.auth-box .form-sub    { text-align: center; }
+
+.auth-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.auth-footer a { color: var(--amber); }
+.auth-footer a:hover { text-decoration: underline; }
+
+
+/* =====================================================================
+   17. EXAM PAGE
+   The question card, answer options and the question-number tracker.
+   ===================================================================== */
+.exam-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 26px;
+  padding: 18px 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.exam-bar h3 { font-size: 17px; }
+.exam-bar p  { font-size: 13px; color: var(--muted); }
+
+/* progress bar that fills up as questions are answered */
+.exam-progress {
+  height: 8px;
+  margin-top: 10px;
+  background: var(--ink-soft);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.exam-progress span {
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--amber), var(--mint));
+  animation: fillBar 1.6s ease forwards;
+}
+
+/* small numbered buttons: 1, 2, 3 ... to jump between questions */
+.q-tracker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.q-num {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.q-num:hover { transform: translateY(-3px); border-color: var(--amber); }
+.q-num.answered { background: var(--mint); color: #06281f; border-color: var(--mint); }
+.q-num.current   { border: 2px solid var(--amber); }
+
+.question-card {
+  padding: 30px;
+  margin-bottom: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  animation: riseIn .6s ease both;
+}
+.question-card h3 { font-size: 18px; margin-bottom: 22px; line-height: 1.5; }
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .15s ease;
+}
+.option:hover { border-color: var(--amber); transform: translateX(4px); }
+.option input { width: auto; accent-color: var(--amber); }
+.option.selected {
+  border-color: var(--amber);
+  background: rgba(245,178,61,.1);
+}
+
+.exam-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+/* =====================================================================
+   18. RESULT PAGE
+   A centred score card with a circular score ring and a stat grid.
+   ===================================================================== */
+.result-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 70px 20px;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 44px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  animation: riseIn .7s ease both;
+}
+
+.result-card > img { margin: 0 auto 16px; }
+
+/* circular ring built with conic-gradient, showing the score visually */
+.score-ring {
+  width: 168px;
+  height: 168px;
+  margin: 24px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--mint) 0% 84%, var(--line) 84% 100%);
+  animation: ringIn 1.2s ease both;
+}
+.score-ring-inner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-ring-inner strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  color: var(--mint);
+}
+.score-ring-inner span { font-size: 12px; color: var(--muted); }
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0;
+}
+.result-stats div {
+  padding: 16px;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.result-stats strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  color: var(--amber);
+}
+.result-stats span { font-size: 13px; color: var(--muted); }
+
+
+/* =====================================================================
+   19. MEDIA QUERIES - RESPONSIVE DESIGN
+   ===================================================================== */
+
+/* ---------- Tablet: screens narrower than 900px ---------- */
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;     /* two columns become one */
     padding: 46px 0;
   }
   .hero h1 { font-size: 40px; }
-  .hero-art { order: -1; max-width: 480px; }   /* image moves above the text */
+  .hero-art { order: -1; max-width: 480px; margin: 0 auto; }   /* image moves above the text, centered */
 
   .grid-3    { grid-template-columns: repeat(2, 1fr); }
   .split     { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
+
+  .result-stats { grid-template-columns: 1fr; }
+
+  /* exam bar: timer moves below the title instead of sitting beside it */
+  .exam-bar { flex-direction: column; align-items: flex-start; }
+  .exam-bar > div:last-child { width: 100%; min-width: 0; }
 }
 
-/* Mobile: screens narrower than 640px */
+/* ---------- Mobile: screens narrower than 640px ---------- */
 @media (max-width: 640px) {
   .nav { flex-direction: column; }
   .nav-links { flex-wrap: wrap; justify-content: center; }
@@ -566,4 +817,78 @@ tbody tr:last-child { border-bottom: none; }
   .quote p   { font-size: 18px; }
   .cta-band  { padding: 30px 20px; }
   section    { padding: 48px 0; }
+
+  .question-card { padding: 22px; }
+  .q-tracker { gap: 8px; }
+  .q-num { width: 34px; height: 34px; font-size: 13px; }
+
+  .form-box  { padding: 22px; }
+  .auth-wrap { padding: 40px 16px; }
+
+  .result-card { padding: 30px 22px; }
+  .score-ring       { width: 140px; height: 140px; }
+  .score-ring-inner { width: 108px; height: 108px; }
+  .score-ring-inner strong { font-size: 26px; }
 }
+
+/* ---------- Small phones: screens narrower than 420px ---------- */
+@media (max-width: 420px) {
+  .hero h1 { font-size: 27px; }
+  .hero .lead { font-size: 15px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+
+  .stats { flex-direction: column; }
+
+  .option { padding: 12px 14px; font-size: 14px; }
+  .result-stats strong { font-size: 19px; }
+}
+
+
+/* =====================================================================
+   20. JAVASCRIPT HELPER STYLES  (used together with script.js)
+   ===================================================================== */
+
+/* Scroll reveal: script.js adds .reveal first, then .visible when the
+   element enters the screen. The fade-in uses the riseIn keyframes. */
+.reveal         { opacity: 0; }
+.reveal.visible { opacity: 1; animation: riseIn .7s ease backwards; }
+
+/* Nav link of the section currently on screen */
+.nav-links a.active { color: var(--paper); }
+.nav-links a.active::after { width: calc(100% - 28px); }
+
+/* Message shown after the registration form is submitted */
+.form-message {
+  display: none;
+  margin-top: 16px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--mint);
+  background: rgba(70,211,180,.12);
+  border: 1px solid rgba(70,211,180,.35);
+  border-radius: 10px;
+}
+.form-message.show { display: block; animation: riseIn .5s ease both; }
+
+/* Back to top button */
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  color: var(--amber);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s ease, border-color .2s ease;
+}
+.to-top.show  { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { border-color: var(--amber); }

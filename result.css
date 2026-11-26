@@ -1,0 +1,343 @@
+/* =====================================================================
+   PROJECT : ExamHub - Online Examination & Assessment System
+   FILE    : result.css   (used only by result.html)
+
+   Self-contained file: shared building blocks (variables, header,
+   buttons, footer) plus the styles specific to the result page.
+
+   CONTENTS:
+     01. CSS Variables
+     02. Reset + Box Model
+     03. Typography
+     04. Reusable classes (container, buttons)
+     05. Header / Navigation bar
+     06. Footer
+     07. Keyframe animation
+     08. RESULT PAGE (page-specific styles)
+     09. Media queries (responsive design)
+     10. JavaScript helper styles + print
+   ===================================================================== */
+
+
+/* =====================================================================
+   01. CSS VARIABLES
+   ===================================================================== */
+:root {
+  --ink:        #10162b;
+  --ink-soft:   #141a33;
+  --panel:      #1b2340;
+  --panel-2:    #232c4f;
+  --line:       #2f3a63;
+  --paper:      #eef1f8;
+  --muted:      #9aa5c4;
+
+  --amber:      #f5b23d;
+  --mint:       #46d3b4;
+  --rose:       #ef6f83;
+
+  --radius:     14px;
+  --maxw:       1140px;
+}
+
+
+/* =====================================================================
+   02. GLOBAL RESET + BOX MODEL
+   ===================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(circle at 12% 6%,  rgba(245,178,61,.15), transparent 42%),
+    radial-gradient(circle at 88% 2%,  rgba(70,211,180,.13), transparent 45%);
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed;
+  color: var(--paper);
+  line-height: 1.65;
+}
+
+img { max-width: 100%; display: block; }
+ul  { list-style: none; }
+a   { color: inherit; text-decoration: none; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+
+/* =====================================================================
+   03. TYPOGRAPHY
+   ===================================================================== */
+h1, h2, h3 {
+  font-family: 'Outfit', Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+/* =====================================================================
+   04. REUSABLE CLASSES
+   ===================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.btn-primary {
+  background: var(--amber);
+  color: #221703;
+  box-shadow: 0 8px 20px rgba(245,178,61,.28);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(245,178,61,.42);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover { background: var(--panel-2); transform: translateY(-3px); }
+.btn-block { width: 100%; }
+
+
+/* =====================================================================
+   05. HEADER / NAVIGATION BAR
+   ===================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(16,22,43,.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 0;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  padding: 8px 14px;
+  font-size: 15px;
+  color: var(--muted);
+  border-radius: 8px;
+  transition: color .25s ease, background .25s ease;
+}
+.nav-links a:hover { color: var(--paper); background: rgba(255,255,255,.05); }
+
+
+/* =====================================================================
+   06. FOOTER
+   ===================================================================== */
+.site-footer {
+  margin-top: 40px;
+  padding: 30px 0;
+  background: var(--ink-soft);
+  border-top: 1px solid var(--line);
+}
+.copyright {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+
+/* =====================================================================
+   07. KEYFRAME ANIMATIONS
+   ===================================================================== */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* used by .score-ring : the ring fades and scales in on load */
+@keyframes ringIn {
+  from { opacity: 0; transform: scale(.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+
+/* =====================================================================
+   08. RESULT PAGE (page-specific styles)
+   ===================================================================== */
+.result-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 70px 20px;
+}
+
+.result-card {
+  width: 100%;
+  max-width: 560px;
+  padding: 44px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  animation: riseIn .7s ease both;
+}
+
+.result-card > img { margin: 0 auto 16px; }
+
+/* Circular ring built with a CSS conic-gradient (no image used) */
+.score-ring {
+  width: 168px;
+  height: 168px;
+  margin: 24px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  --ring: var(--mint);   /* colour of the ring, result.js changes it if the student failed */
+  --score: 0;            /* 0 to 100, result.js animates this value */
+  background: conic-gradient(var(--ring) calc(var(--score) * 1%), var(--line) 0);
+  animation: ringIn 1.2s ease both;
+}
+.score-ring-inner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-ring-inner strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  color: var(--ring);
+}
+.score-ring-inner span { font-size: 12px; color: var(--muted); }
+
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0;
+}
+.result-stats div {
+  padding: 16px;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.result-stats strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  color: var(--amber);
+}
+.result-stats span { font-size: 13px; color: var(--muted); }
+
+
+/* =====================================================================
+   09. MEDIA QUERIES - RESPONSIVE DESIGN
+   ===================================================================== */
+
+/* Tablet: screens narrower than 900px */
+@media (max-width: 900px) {
+  .result-stats { grid-template-columns: 1fr; }
+}
+
+/* Mobile: screens narrower than 640px */
+@media (max-width: 640px) {
+  .nav { flex-direction: column; }
+  .result-card { padding: 30px 22px; }
+  .score-ring       { width: 140px; height: 140px; }
+  .score-ring-inner { width: 108px; height: 108px; }
+  .score-ring-inner strong { font-size: 26px; }
+}
+
+/* Small phones: screens narrower than 420px */
+@media (max-width: 420px) {
+  .result-stats strong { font-size: 19px; }
+}
+
+
+/* =====================================================================
+   10. JAVASCRIPT HELPER STYLES + PRINT  (used together with result.js)
+   ===================================================================== */
+.student-line   { font-size: 13px; color: var(--muted); }
+.result-message { margin-bottom: 6px; }
+.result-note    { margin-top: 8px; font-size: 13px; color: var(--amber); }
+
+/* "Review your answers" - a <details> element that opens and closes by itself */
+.review { margin: 0 0 26px; text-align: left; }
+.review summary {
+  padding: 12px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .2s ease;
+}
+.review summary:hover { border-color: var(--amber); }
+.review[open] summary { margin-bottom: 12px; }
+
+.review-item {
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--line);
+  border-radius: 10px;
+}
+.review-item small   { display: block; color: var(--muted); }
+.review-item.right   { border-left-color: var(--mint); }
+.review-item.wrong   { border-left-color: var(--rose); }
+.review-item.skipped { border-left-color: var(--amber); }
+
+.result-actions { display: grid; gap: 12px; }
+
+/* Print: white page, no header / footer / buttons */
+@media print {
+  :root { --ink: #fff; --panel: #fff; --ink-soft: #f3f3f3; --line: #999; --paper: #000; --muted: #444; }
+  body { background: #fff; }
+  .site-header, .site-footer, .result-actions { display: none; }
+  .result-card { border: 1px solid #999; animation: none; }
+  .review { display: block; }
+}
+
+/* Make the <button> and the <a> in the actions area exactly the same height */
+.result-actions .btn { line-height: 1.6; text-align: center; }
