@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     PROJECT : ExamHub - Online Examination & Assessment System
+     FILE    : exam.html
+     The questions, options, timer and tracker buttons are all created by
+     exam.js. This file only holds the empty containers (look for the ids).
+     ===================================================================== -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam | ExamHub</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="exam.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER (no nav links during an exam, on purpose) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="logo">
+          <img src="file_0000000034248211af6146cf04fec4cb.png" alt="ExamHub logo" width="25%" height="25%">
+        </a>
+        <span class="badge badge-live"><span class="live-dot"></span> Exam in progress</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container exam-container">
+
+      <noscript>
+        <p class="exam-warning show">Please turn on JavaScript to take this exam.</p>
+      </noscript>
+
+      <!-- ================= TOP BAR : subject, question count, timer, progress ================= -->
+      <div class="exam-bar">
+        <div>
+          <h3 id="examTitle">Unit Test</h3>
+          <p id="examMeta">Loading...</p>
+        </div>
+        <div class="exam-status">
+          <span class="badge badge-soon" id="timerBadge">&#9201; Time left: <span id="timeLeft">10:00</span></span>
+          <div class="exam-progress"><span id="progressFill" style="width: 0%;"></span></div>
+        </div>
+      </div>
+
+      <!-- Tab-switch warning (shown by exam.js) -->
+      <div class="exam-warning" id="warningBox" role="alert"></div>
+
+      <!-- ================= QUESTION NUMBER BUTTONS (built by exam.js) ================= -->
+      <div class="q-tracker" id="tracker"></div>
+
+      <!-- ================= QUESTION CARD ================= -->
+      <div class="question-card" id="questionCard">
+        <h3 id="questionText">Loading question...</h3>
+        <div id="options"></div>
+      </div>
+
+      <!-- ================= PREVIOUS / NEXT BUTTONS ================= -->
+      <div class="exam-actions">
+        <button type="button" class="btn btn-ghost" id="prevBtn">&larr; Previous</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Next question &rarr;</button>
+      </div>
+
+      <p class="exam-hint">Tip: use the &larr; &rarr; arrow keys to move, and keys 1 to 4 to choose an option.</p>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="copyright">
+        &copy; 2026 ExamHub &nbsp;&bull;&nbsp; Web Development Project
+        &nbsp;&bull;&nbsp; Built with HTML5 &amp; CSS3
+      </p>
+    </div>
+  </footer>
+
+  <script src="exam.js" defer></script>
+
+</body>
+</html>
